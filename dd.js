@@ -17,7 +17,7 @@ hostname = api.m.jd.com
 */
 
 const $ = new Env("wskey")
-const notify = $.isNode() ? require('./sendNotify') : '';
+const notify = require('./sendNotify');
 !(async () => {
     let cookie = $request.headers.Cookie
     let wskey = cookie.match(/(wskey=[^;]*)/)[1]

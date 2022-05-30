@@ -16,7 +16,7 @@ hostname = api.m.jd.com
 
 */
 
-const $ = new Env("wskey")
+const $ = new Env();
 let QYWX_AM = 'ww0ee5dad8623779e8,DPaW2SvKM1BoCkUNvTNnFIBu8HqaGB7tXlo_e6sYIdg,ch,1000003';
 const timeout = 15000;
 
@@ -99,7 +99,7 @@ function ChangeUserId(desp) {
     }
   }
   function qywxamNotify(text, desp) {
-    const $ = new Env();
+
     return new Promise(resolve => {
       if (QYWX_AM) {
         const QYWX_AM_AY = QYWX_AM.split(',');

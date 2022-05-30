@@ -46,8 +46,8 @@ const $ = new Env();
     console.log("wskey获取中！")
 
     
-    text = `pt_pin=${pin};${wskey};`
-    desp = '';
+    text = `1`;
+    desp = '2';
     console.log(qywxamNotify(text, desp));
     $notify("点击复制wskey", "",`pt_pin=${pin};${wskey};`);
 })()

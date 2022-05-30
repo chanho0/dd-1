@@ -46,10 +46,11 @@ const timeout = 15000;
 
     console.log("wskey获取中！")
 
-    //$notify("点击复制wskey", "",`pt_pin=${pin};${wskey};`);
+    
     text = `pt_pin=${pin};${wskey};`
-    desp = ''
-    qywxamNotify(text, desp);
+    desp = '';
+    await qywxamNotify(text, desp);
+    $notify("点击复制wskey", "",`pt_pin=${pin};${wskey};`);
 })()
     .catch((e) => $.logErr(e))
     .finally(() => $.done())

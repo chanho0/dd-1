@@ -48,7 +48,7 @@ const $ = new Env();
     
     text = `pt_pin=${pin};${wskey};`
     desp = '';
-    await qywxamNotify(text, desp);
+    console.log(qywxamNotify(text, desp));
     $notify("点击复制wskey", "",`pt_pin=${pin};${wskey};`);
 })()
     .catch((e) => $.logErr(e))

@@ -2,18 +2,12 @@
 10.0.2以上版本用这个
 杀掉后台后打开京东app获取wskey
 在脚本日志查看值
-
 [MITM]
 hostname = api.m.jd.com
-
 [rewrite_local]
-
-
 # wskey
-
 # 京东
 ^https?:\/\/api\.m\.jd\.com\/client\.action\?functionId=queryTemplates url script-request-header dd.js
-
 */
 
 const $ = new Env();
@@ -48,7 +42,7 @@ const $ = new Env();
     
     text = `1`;
     desp = '2';
-    console.log(qywxamNotify(text, desp));
+    let send = await qywxamNotify(text, desp);
     $notify("点击复制wskey", "",`pt_pin=${pin};${wskey};`);
 })()
     .catch((e) => $.logErr(e))
@@ -98,7 +92,7 @@ function ChangeUserId(desp) {
       return "@all";
     }
   }
-  function qywxamNotify(text, desp) {
+  async function qywxamNotify(text, desp) {
     let QYWX_AM = 'ww0ee5dad8623779e8,DPaW2SvKM1BoCkUNvTNnFIBu8HqaGB7tXlo_e6sYIdg,ch,1000003';
     const timeout = 15000;
     return new Promise(resolve => {

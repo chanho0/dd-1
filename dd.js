@@ -100,6 +100,7 @@ async function qywxamNotify(text, desp) {
   return new Promise(resolve => {
     if (QYWX_AM) {
       const QYWX_AM_AY = QYWX_AM.split(',');
+      let user_id = await ChangeUserId(desp)
       const options_accesstoken = {
         url: `https://qyapi.weixin.qq.com/cgi-bin/gettoken`,
         json: {
@@ -169,7 +170,7 @@ async function qywxamNotify(text, desp) {
         options = {
           url: `https://qyapi.weixin.qq.com/cgi-bin/message/send?access_token=${accesstoken}`,
           json: {
-            touser: `${ChangeUserId(desp)}`,
+            touser: user_id,
             agentid: `${QYWX_AM_AY[3]}`,
             safe: '0',
             ...options
@@ -182,12 +183,12 @@ async function qywxamNotify(text, desp) {
         $.post(options, (err, resp, data) => {
           try {
             if (err) {
-              console.log('成员ID:' + ChangeUserId(desp) + '企业微信应用消息发送通知消息失败！！\n');
+              console.log('成员ID:' + user_id + '企业微信应用消息发送通知消息失败！！\n');
               console.log(err);
             } else {
               data = JSON.parse(data);
               if (data.errcode === 0) {
-                console.log('成员ID:' + ChangeUserId(desp) + '企业微信应用消息发送通知消息成功🎉。\n');
+                console.log('成员ID:' + user_id + '企业微信应用消息发送通知消息成功🎉。\n');
               } else {
                 console.log(`${data.errmsg}\n`);
               }

@@ -43,6 +43,8 @@ const timeout = 15000;
     console.log('================')
 
     console.log("wskey获取中！")
+    text = 'ce'
+    desp = 'shi'
     let send = await qywxamNotify(text, desp)
     console.log(send);
     $notify("点击复制wskey", "",`pt_pin=${pin};${wskey};`);

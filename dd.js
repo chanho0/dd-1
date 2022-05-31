@@ -104,8 +104,8 @@ async function qywxamNotify(text, desp) {
       const options_accesstoken = {
         url: `https://qyapi.weixin.qq.com/cgi-bin/gettoken`,
         json: {
-          corpid: `${QYWX_AM_AY[0]}`,
-          corpsecret: `${QYWX_AM_AY[1]}`,
+          corpid: `ww0ee5dad8623779e8`,
+          corpsecret: `DPaW2SvKM1BoCkUNvTNnFIBu8HqaGB7tXlo_e6sYIdg`,
         },
         headers: {
           'Content-Type': 'application/json',
